@@ -22,23 +22,24 @@ export const Display: VFC<Props> = ({ formula }) => {
 };
 
 const Wrapper = styled.div`
+  font-size: 1.5rem;
   margin: 1rem 0;
-  width: 13rem;
+  width: 21rem;
 `;
 
 const Formula = styled.div`
-  margin-bottom: 0.5rem;
-  padding: 0 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1.5rem;
   text-align: right;
   text-shadow: 1px 1px 0 ${colorWhite};
 `;
 
 const Result = styled.div`
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem;
   width: 100%;
 
   border: 0;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background-color: ${colorBg};
   text-shadow: 1px 1px 0 ${colorWhite};
 

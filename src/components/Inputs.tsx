@@ -65,6 +65,6 @@ export const Inputs: VFC<Props> = ({ formula, setFormula }) => {
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
-  max-width: 20rem;
+  grid-gap: 1.5rem;
+  max-width: 40rem;
 `;

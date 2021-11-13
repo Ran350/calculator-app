@@ -65,14 +65,14 @@ const Wrapper = styled.div`
   padding: 0;
   margin: 0;
   text-align: center;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 4rem;
+  width: 4rem;
   display: block;
 `;
 
 const ButtonStyle = styled.button`
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-shadow: 1px 1px 0 ${colorWhite};
   color: #61677c;
   background-color: ${colorBg};
@@ -80,7 +80,7 @@ const ButtonStyle = styled.button`
   margin: 0;
   border: 0;
   padding: 0;
-  border-radius: 8px;
+  border-radius: 1rem;
   box-shadow: -5px -5px 20px ${colorWhite}, 5px 5px 20px ${colorShadow};
   outline: 0;
   height: 100%;

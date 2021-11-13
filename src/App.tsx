@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 const Calculator = styled.div`
   margin: 0 auto;
   padding:1rem
-  min-width: 15rem;
+  min-width: 30rem;
 `;
 
 const Title = styled.div`
@@ -54,10 +54,10 @@ const Title = styled.div`
   margin: 0;
   // text-shadow: 1px 1px 1px ${colorWhite};
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
 
-  background: linear-gradient(to right, #076585 0%, #fff 100%);
+  background: linear-gradient(to right, #757f9a 0%, #d7dde8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
