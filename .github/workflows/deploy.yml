@@ -30,9 +30,6 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Clone Git Submodule
-        run: cd src/lib && git clone https://github.com/Ran350/calculator-app.git && cd ../../
-
       - name: Build
         run: yarn build
 
