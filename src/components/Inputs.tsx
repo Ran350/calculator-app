@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 import { VFC } from "react";
+import styled from "styled-components";
 import { ACButton, Button, CEButton } from "./Button";
 
 type Props = {
@@ -8,30 +9,34 @@ type Props = {
 };
 
 export const Inputs: VFC<Props> = ({ formula, setFormula }) => {
-  const symbols = [
-    // ["calculate()用の半角表現","表示文字"]
-    ["0", "0"],
-    ["1", "1"],
-    ["2", "2"],
-    ["3", "3"],
-    ["4", "4"],
-    ["5", "5"],
-    ["6", "6"],
-    ["7", "7"],
-    ["8", "8"],
-    ["9", "9"],
-    [".", "."],
+  const line1Symbols = [
     ["(", "("],
     [")", ")"],
+  ];
+  const symbols = [
+    // ["calculate()用の半角表現","表示文字"]
+    ["7", "7"], // 2nd line
+    ["8", "8"],
+    ["9", "9"],
     ["+", "＋"],
+    ["4", "4"], // 3rd line
+    ["5", "5"],
+    ["6", "6"],
     ["-", "−"],
-    ["*", "✕"],
+    ["1", "1"], // 4ht line
+    ["2", "2"],
+    ["3", "3"],
+    ["*", "×"],
+    ["0", "0"], // 5th line
+    ["00", "00"],
+    [".", "."],
     ["/", "÷"],
   ];
 
   return (
-    <>
-      {symbols.map((symbol) => (
+    <Grid>
+      {/* 1st line */}
+      {line1Symbols.map((symbol) => (
         <Button
           halfSizeSymbol={symbol[0]}
           displaySymbol={symbol[1]}
@@ -39,8 +44,27 @@ export const Inputs: VFC<Props> = ({ formula, setFormula }) => {
           setFormula={setFormula}
         />
       ))}
-      <ACButton setFormula={setFormula} />
+
       <CEButton formula={formula} setFormula={setFormula} />
-    </>
+      <ACButton setFormula={setFormula} />
+
+      {/* 2~5th line */}
+      {symbols.map((symbol, i) => (
+        <Button
+          key={i}
+          halfSizeSymbol={symbol[0]}
+          displaySymbol={symbol[1]}
+          formula={formula}
+          setFormula={setFormula}
+        />
+      ))}
+    </Grid>
   );
 };
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  max-width: 20rem;
+`;
