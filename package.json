@@ -2,6 +2,7 @@
   "name": "calculator-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ran350.github.io/calculator-app/",
   "dependencies": {
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
@@ -13,11 +14,14 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.15",
+    "gh-pages": "^3.2.3"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "yarn && yarn build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -36,8 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/styled-components": "^5.1.15"
   }
 }
