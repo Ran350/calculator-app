@@ -1,15 +1,29 @@
 import type { Dispatch, SetStateAction } from "react";
 import { VFC } from "react";
 import styled from "styled-components";
-import { colorBg, colorShadow, colorWhite } from "../css";
+import {
+  colorBg,
+  colorShadow,
+  colorWhite,
+  fontColorNavy,
+  fontColorRed,
+  fontColorYellow,
+} from "../css";
 
 type Props = {
   halfSizeSymbol: string;
-  displaySymbol: string;
+  displaySymbol?: string;
+  isNumber?: boolean;
   formula: string;
   setFormula: Dispatch<SetStateAction<string>>;
 };
-export const Button: VFC<Props> = ({ halfSizeSymbol, displaySymbol, formula, setFormula }) => {
+export const Button: VFC<Props> = ({
+  halfSizeSymbol,
+  displaySymbol = halfSizeSymbol,
+  isNumber = true,
+  formula,
+  setFormula,
+}) => {
   const updateFormula = () => {
     if (formula === "0" || formula === "00") {
       setFormula(halfSizeSymbol);
@@ -20,31 +34,33 @@ export const Button: VFC<Props> = ({ halfSizeSymbol, displaySymbol, formula, set
 
   return (
     <Wrapper>
-      <ButtonStyle onClick={updateFormula}>{displaySymbol}</ButtonStyle>
+      {isNumber ? (
+        <ButtonStyle onClick={updateFormula}>{displaySymbol}</ButtonStyle>
+      ) : (
+        <SymbolButtonStyle onClick={updateFormula}>{displaySymbol}</SymbolButtonStyle>
+      )}
     </Wrapper>
   );
 };
 
-type ACButtonProps = {
+export const ACButton: VFC<{
   setFormula: Dispatch<SetStateAction<string>>;
-};
-export const ACButton: VFC<ACButtonProps> = ({ setFormula }) => {
+}> = ({ setFormula }) => {
   const clearFormula = () => {
     setFormula("0");
   };
 
   return (
     <Wrapper>
-      <ButtonStyle onClick={clearFormula}>AC</ButtonStyle>
+      <AlertButtonStyle onClick={clearFormula}>AC</AlertButtonStyle>
     </Wrapper>
   );
 };
 
-type CEButtonProps = {
+export const CEButton: VFC<{
   formula: string;
   setFormula: Dispatch<SetStateAction<string>>;
-};
-export const CEButton: VFC<CEButtonProps> = ({ formula, setFormula }) => {
+}> = ({ formula, setFormula }) => {
   const popFormula = () => {
     if (formula.length === 1) {
       setFormula("0");
@@ -55,7 +71,7 @@ export const CEButton: VFC<CEButtonProps> = ({ formula, setFormula }) => {
 
   return (
     <Wrapper>
-      <ButtonStyle onClick={popFormula}>CE</ButtonStyle>
+      <AlertButtonStyle onClick={popFormula}>CE</AlertButtonStyle>
     </Wrapper>
   );
 };
@@ -74,7 +90,7 @@ const ButtonStyle = styled.button`
   font-weight: bold;
   font-size: 1.5rem;
   text-shadow: 1px 1px 0 ${colorWhite};
-  color: #61677c;
+  color: ${fontColorNavy};
   background-color: ${colorBg};
 
   margin: 0;
@@ -82,7 +98,6 @@ const ButtonStyle = styled.button`
   padding: 0;
   border-radius: 1rem;
   box-shadow: -5px -5px 20px ${colorWhite}, 5px 5px 20px ${colorShadow};
-  outline: 0;
   height: 100%;
   width: 100%;
 
@@ -101,4 +116,14 @@ const ButtonStyle = styled.button`
   &:active {
     box-shadow: inset 1px 1px 2px ${colorShadow}, inset -1px -1px 2px ${colorWhite};
   }
+`;
+
+const SymbolButtonStyle = styled(ButtonStyle)`
+  color: ${fontColorYellow};
+  text-shadow: ${fontColorYellow} 0 0 2px, ${fontColorYellow} 0 0 40px;
+`;
+
+const AlertButtonStyle = styled(ButtonStyle)`
+  color: ${fontColorRed};
+  text-shadow: ${fontColorRed} 0 0 1px, ${fontColorRed} 0 0 30px;
 `;

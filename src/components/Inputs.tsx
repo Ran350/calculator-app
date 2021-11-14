@@ -9,55 +9,61 @@ type Props = {
 };
 
 export const Inputs: VFC<Props> = ({ formula, setFormula }) => {
-  const line1Symbols = [
-    ["(", "("],
-    [")", ")"],
-  ];
-  const symbols = [
-    // ["calculate()用の半角表現","表示文字"]
-    ["7", "7"], // 2nd line
-    ["8", "8"],
-    ["9", "9"],
-    ["+", "＋"],
-    ["4", "4"], // 3rd line
-    ["5", "5"],
-    ["6", "6"],
-    ["-", "−"],
-    ["1", "1"], // 4ht line
-    ["2", "2"],
-    ["3", "3"],
-    ["*", "×"],
-    ["0", "0"], // 5th line
-    ["00", "00"],
-    [".", "."],
-    ["/", "÷"],
-  ];
-
   return (
     <Grid>
       {/* 1st line */}
-      {line1Symbols.map((symbol) => (
-        <Button
-          halfSizeSymbol={symbol[0]}
-          displaySymbol={symbol[1]}
-          formula={formula}
-          setFormula={setFormula}
-        />
-      ))}
-
+      <Button halfSizeSymbol={"("} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={")"} formula={formula} setFormula={setFormula} />
       <CEButton formula={formula} setFormula={setFormula} />
       <ACButton setFormula={setFormula} />
 
-      {/* 2~5th line */}
-      {symbols.map((symbol, i) => (
-        <Button
-          key={i}
-          halfSizeSymbol={symbol[0]}
-          displaySymbol={symbol[1]}
-          formula={formula}
-          setFormula={setFormula}
-        />
-      ))}
+      {/* 2nd line */}
+      <Button halfSizeSymbol={"7"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"8"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"9"} formula={formula} setFormula={setFormula} />
+      <Button
+        halfSizeSymbol={"+"}
+        displaySymbol={"＋"}
+        isNumber={false}
+        formula={formula}
+        setFormula={setFormula}
+      />
+
+      {/* 3rd line */}
+      <Button halfSizeSymbol={"4"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"5"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"6"} formula={formula} setFormula={setFormula} />
+      <Button
+        halfSizeSymbol={"-"}
+        displaySymbol={"−"}
+        isNumber={false}
+        formula={formula}
+        setFormula={setFormula}
+      />
+
+      {/* 4th line */}
+      <Button halfSizeSymbol={"1"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"2"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"3"} formula={formula} setFormula={setFormula} />
+      <Button
+        halfSizeSymbol={"*"}
+        displaySymbol={"×"}
+        isNumber={false}
+        formula={formula}
+        setFormula={setFormula}
+      />
+
+      {/* 5th line */}
+      <Button halfSizeSymbol={"0"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"00"} formula={formula} setFormula={setFormula} />
+      <Button halfSizeSymbol={"."} displaySymbol={"."} formula={formula} setFormula={setFormula} />
+      <Button
+        halfSizeSymbol={"/"}
+        displaySymbol={"÷"}
+        isNumber={false}
+        formula={formula}
+        setFormula={setFormula}
+      />
     </Grid>
   );
 };

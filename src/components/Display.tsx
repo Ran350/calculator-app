@@ -1,6 +1,6 @@
 import { VFC } from "react";
 import styled from "styled-components";
-import { colorBg, colorShadow, colorWhite } from "../css";
+import { colorBg, colorShadow, colorWhite, fontColorNavy } from "../css";
 import { calculate } from "../lib/calculator/src/calculator";
 
 type Props = {
@@ -22,6 +22,7 @@ export const Display: VFC<Props> = ({ formula }) => {
 };
 
 const Wrapper = styled.div`
+  color: ${fontColorNavy};
   font-size: 1.5rem;
   margin: 1rem 0;
   width: 21rem;

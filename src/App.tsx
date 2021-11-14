@@ -2,7 +2,7 @@ import { useState, VFC } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { Display } from "./components/Display";
 import { Inputs } from "./components/Inputs";
-import { colorBg, colorWhite, fontColor } from "./css";
+import { colorBg } from "./css";
 
 const App: VFC = () => {
   const [formula, setFormula] = useState<string>("0");
@@ -36,7 +36,6 @@ body {
 `;
 
 const Wrapper = styled.div`
-  color: ${fontColor};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,11 +51,9 @@ const Calculator = styled.div`
 const Title = styled.div`
   padding: 0;
   margin: 0;
-  // text-shadow: 1px 1px 1px ${colorWhite};
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
-
   background: linear-gradient(to right, #757f9a 0%, #d7dde8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
